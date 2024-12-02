@@ -10,13 +10,9 @@ let rec difference (report: int list) : int list =
     | e1 :: e2 :: tail -> (e1 - e2) :: difference (e2 :: tail)
     | _ -> []
 
-let isDiffer (report: int list) : bool = 
-    match report with
-    | e1 :: e2 :: _ -> (System.Math.Abs (e1 - e2)) > 0 
-    | _ -> true
-
 let isValidReport (report: int list) : bool =
     Seq.forall (fun i -> 0 < i && i < 4) report || Seq.forall (fun i -> -4 < i && i < 0) report
+
 let ans = 
     System.IO.File.ReadAllLines "input"
     //levels.Split "\n"
